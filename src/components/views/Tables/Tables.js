@@ -52,6 +52,7 @@ const Tables = () => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
+    event.preventDefault();
     setValue(newValue);
   };
 
@@ -74,7 +75,7 @@ const Tables = () => {
 };
 
 Tables.propTypes = {
-  location: PropTypes.node,
+  location: PropTypes.any,
   pathname: PropTypes.node,
 };
 
