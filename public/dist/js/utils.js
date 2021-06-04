@@ -9,6 +9,7 @@ utils.createDOMFromHTML = function(htmlString) {
 };
 
 utils.createPropIfUndefined = function(obj, key, value = []){
+  // eslint-disable-next-line no-prototype-builtins
   if(!obj.hasOwnProperty(key)){
     obj[key] = value;
   }
@@ -16,17 +17,17 @@ utils.createPropIfUndefined = function(obj, key, value = []){
 
 utils.serializeFormToObject = function(form){
   let output = {};
-  if (typeof form == 'object' && form.nodeName == 'FORM') {
+  if (typeof form == 'object' && form.nodeName === 'FORM') {
     for (let field of form.elements) {
-      if (field.name && !field.disabled && field.type != 'file' && field.type != 'reset' && field.type != 'submit' && field.type != 'button') {
-        if (field.type == 'select-multiple') {
+      if (field.name && !field.disabled && field.type !== 'file' && field.type != 'reset' && field.type != 'submit' && field.type != 'button') {
+        if (field.type === 'select-multiple') {
           for (let option of field.options) {
             if(option.selected) {
               utils.createPropIfUndefined(output, field.name);
               output[field.name].push(option.value);
             }
           }
-        } else if ((field.type != 'checkbox' && field.type != 'radio') || field.checked) {
+        } else if ((field.type !== 'checkbox' && field.type !== 'radio') || field.checked) {
           utils.createPropIfUndefined(output, field.name);
           output[field.name].push(field.value);
         } else if(!output[field.name]) output[field.name] = [];
@@ -72,7 +73,7 @@ utils.addDays = function(dateStr, days){
 };
 
 Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
-  return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+  return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
 });
 Handlebars.registerHelper('joinValues', function(input, options) {
   return Object.values(input).join(options.fn(this));
