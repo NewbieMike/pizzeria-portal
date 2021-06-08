@@ -87,7 +87,7 @@ class Booking{
     const maxDate = thisBooking.datePicker.maxDate;
 
     for(let item of eventsRepeat){
-      if(item.repeat == 'daily'){
+      if(item.repeat === 'daily'){
         for(let loopDate = minDate; loopDate <= maxDate; loopDate = utils.addDays(loopDate, 1)){
           thisBooking.makeBooked(utils.dateToStr(loopDate), item.hour, item.duration, item.table);
         }
@@ -243,7 +243,7 @@ class Booking{
     console.log(payload);
     for(let starter of thisBooking.dom.starters){
       
-      if(starter.checked == true){
+      if(starter.checked === true){
         payload.starters.push(starter.value);
       }
     }

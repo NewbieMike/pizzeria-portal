@@ -11,7 +11,7 @@ import TablesEventsEdit from './components/views/Tables/TablesEventsEdit';
 import TablesEventsNew from './components/views/Tables/TablesEventsNew';
 import WaiterOrderNew from './components/views/Waiter/WaiterOrderNew';
 import WaiterOrderEdit from './components/views/Waiter/WaiterOrderEdit';
-import Waiter from './components/views/Waiter/Waiter';
+import Waiter from './components/views/Waiter/WaiterContainer';
 
 import { StylesProvider } from '@material-ui/core/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -48,7 +48,7 @@ function App() {
               <Route path={process.env.PUBLIC_URL + '/waiter'} component={Waiter} />
               <Route path={process.env.PUBLIC_URL + '/login'} component={Login} />
               <Route
-                path={process.env.PUBLIC_URL + '/tables/booking/book/:id'}
+                path={process.env.PUBLIC_URL + '/tables/booking/:id'}
                 component={TablesBookingEdit}
               />
               <Route
@@ -57,19 +57,19 @@ function App() {
                 component={TablesBookingNew}
               />
               <Route
-                path={process.env.PUBLIC_URL + '/tables/events/event/:id'}
+                path={process.env.PUBLIC_URL + '/tables/event/:id'}
                 component={TablesEventsEdit}
               />
               <Route
-                path={process.env.PUBLIC_URL + '/tables/events/new'}
+                path={process.env.PUBLIC_URL + '/tables/event/new'}
                 component={TablesEventsNew}
               />
               <Route
-                path={process.env.PUBLIC_URL + '/waiter/ordering/order/:id'}
+                path={process.env.PUBLIC_URL + '/waiter/order/:id'}
                 component={WaiterOrderEdit}
               />{' '}
               <Route
-                path={process.env.PUBLIC_URL + '/waiter/ordering/new'}
+                path={process.env.PUBLIC_URL + '/waiter/new'}
                 component={WaiterOrderNew}
               />
             </Switch>
